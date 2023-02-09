@@ -24,15 +24,26 @@
     </div>
 
     <div class="user-posts">
-        <div class="post-wrapper">
-            <div class= "post-header">
-                <h1>HAHAHHAHA</h1>
-                <h3>Feb. 16 2023</h3>
-                <h5>Park Ming Guy</h5>
+      <%  @posts.each do |post|%>
+        <% if post.user.id == current_user.id%>
+            <div class="post-wrapper">
+                <div class= "post-header">
+                    <h1><%= post.title%></h1>
+                    <h5><%= post.created_at%></h5>
+                    <p><%= post.user.email%></p>
+                </div>
+                <div class="post-body">
+                    <%= post.body%>
+                </div>
+                <div class="profile-btn">
+                    <%= link_to "Edit Profile", edit_post_path(post.id)%>
+                    <%= link_to "Delete Post", post_path(post.id), data:{
+                                               turbo_method: :delete,
+                                               turbo_confirm: "Are you sure?"
+                    }%>
+                </div>
             </div>
-            <div class="post-body">
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+        <%end%>
+      <%end%>
     </div>
 </div>

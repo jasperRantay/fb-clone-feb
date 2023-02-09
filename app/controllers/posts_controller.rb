@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.new(event_params)
+        @post = Post.new(post_params)
         @post.user_id = current_user.id
         if @post.save
             redirect_to fbpages_path, notice: "Post Added"
@@ -21,10 +21,34 @@ class PostsController < ApplicationController
         end
     end
 
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        @user = current_user.id
+        if @post.update(post_params)
+            redirect_to user_url(@user), notice: "Successfully Updated"
+          else
+            render :edit, status: :unprocessable_entity
+          end
+    end
+
+
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        @user = current_user.id
+        redirect_to user_url(@user), status: :see_other, notice: "Post Deleted"
+      end
+
     private
-    def event_params
+    def post_params
         params.require(:post).permit(:title, :body, :user_id)
     end
+
+
 
 
 end

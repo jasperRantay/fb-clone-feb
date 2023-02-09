@@ -19,13 +19,21 @@
                             <%= link_to "Edit"%>
                             <%= link_to "Delete Post"%>
                         </div>
-                        <div>
-                        <p>Maya kana</p>
-                            <%= link_to "👍"%>
-                            <%= link_to "👎"%>
-                        </div>
                     </div>
                 <%end%>
+                  
+                  <div class="post-btn">
+                    <h5>React</h5>
+                        <div class="react">
+                            <div class="reacts">
+                              <%= link_to "👍"%>
+                            </div>
+                            <div class="reacts">
+                              <%#= link_to "👎"%>
+                            </div>
+                        </div>
+                  </div>
+
                 <div class="comment-wrapper">
                     <strong>Comments: </strong>
                       <%= render post.comments %>

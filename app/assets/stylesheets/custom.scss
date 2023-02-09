@@ -173,6 +173,12 @@ main{
             margin: 0 auto;
         }
             
+        textarea{
+            width: 100%;
+            height: 50px;
+            padding: 16px 8px;
+            font-size: 18px;
+        }
         form input{
             width: 100%;
             padding: 8px;
@@ -183,6 +189,7 @@ main{
         form label{
             font-size: 18px;
             font-weight: 500;
+            margin-top: 16px;
             }
             
         form input[type="submit"]{
@@ -197,6 +204,7 @@ main{
     .user-posts, .user-profile{
         border: 1px solid $blue;
         margin: 32px 16px;
+        padding: 32px 16px;
     }
 
     .user-profile{
@@ -220,6 +228,36 @@ main{
         }
         
 
+    }
+
+    .center{
+        text-align: center;
+        margin: 12px 0;
+    }
+
+    .post-btn{
+        margin: 12px 0;
+
+        a{
+            text-decoration: none;
+        }
+        .react{
+            margin-top: 8px;
+            display: flex;
+            row-gap: 16px;
+            width: 6%;
+            height: 40px;
+            overflow: hidden;
+            filter: drop-shadow(1px 1px 5px $blue);
+        }
+
+        .reacts a{
+            font-size: 24px;
+          }
+
+        .reacts a:hover{
+          font-size: 32px;
+        }
     }
 
 }

@@ -108,13 +108,24 @@ main{
 
     .post-wrapper{
         padding: 32px 64px;
-
+        border: 1px solid $light-gray;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 0 15px 1px $light-blue;
         .post-header{
             margin-bottom: 32px;
         }
 
         .post-body p{
             text-indent: 32px;
+        }
+        .comment-wrapper{
+            border: 1px solid $light-gray;
+            margin-top: 1rem;
+            padding: 8px 4px;
+            border-radius: 8px;
+            height: 100px;
+            overflow-y: scroll;
         }
     }
 

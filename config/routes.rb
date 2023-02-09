@@ -8,8 +8,14 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "home#index"
  
-  resources :fbpages
+  resources :fbpages, only: [:index]
+
   resources :users, only: [:show, :index]
+  
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
+  
 
 
 end

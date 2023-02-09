@@ -1,13 +1,19 @@
+<div class="comments-wrapper">
+    <%if current_user.name == comment.name%>    
+        <strong>
+            <%=comment.name %>:
+        </strong> <i><%= comment.body %></i>
+        <div class="">
+            <%= link_to "Delete", [comment.post, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
 
-<br>
-<%if current_user.name == comment.post.user.name%>    
-<strong>
-    <%=comment.post.user.name %>:
-</strong> <i><%= comment.body %></i>
-<% else%>
-
-<strong>
-  <%#=comment.user.name%> <%= current_user.name%>:
-</strong> <i><%= comment.body %></i>
-
-<%end%>
+                                
+        </div>
+    <% else%>
+    <strong>
+            <%=comment.name %>:
+        </strong> <i><%= comment.body %></i>
+    <%end%>
+</div>

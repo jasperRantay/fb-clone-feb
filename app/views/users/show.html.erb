@@ -16,6 +16,11 @@
             </div>
             <div class="user-profile-infos">
                 <strong>Email:</strong> <%= current_user.email%>
+                 
+            </div>
+             <div class="user-profile-infos">
+                <strong>Post Likes:</strong> 
+                   <%= current_user.likes.count%>
             </div>
         </div>
         <div class="profile-btn">

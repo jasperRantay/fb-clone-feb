@@ -25,12 +25,20 @@
                   <div class="post-btn">
                     <h5>React</h5>
                         <div class="react">
+                          <%# if @likes.present?%>
                             <div class="reacts">
-                              <%= link_to "👍"%>
+                              <%= link_to "👍", user_likes_path(current_user.id), data: {turbo_method: :post}%>
                             </div>
+                          <%# else%>
                             <div class="reacts">
-                              <%#= link_to "👎"%>
+                              <%#= link_to "👎",
+                                data: { turbo_method: "delete",
+                                        turbo_confirm: "Are you sure you don't want to attend?." }%>
                             </div>
+                         <%#end%>
+                        </div>
+                        <div class="likes">
+                            <%= current_user.likes.count%>
                         </div>
                   </div>
 

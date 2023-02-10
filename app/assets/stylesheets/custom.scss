@@ -237,7 +237,7 @@ main{
 
     .post-btn{
         margin: 12px 0;
-
+        position: relative;
         a{
             text-decoration: none;
         }
@@ -245,7 +245,7 @@ main{
             margin-top: 8px;
             display: flex;
             row-gap: 16px;
-            width: 6%;
+            width: 100%;
             height: 40px;
             overflow: hidden;
             filter: drop-shadow(1px 1px 5px $blue);
@@ -257,6 +257,17 @@ main{
 
         .reacts a:hover{
           font-size: 32px;
+        }
+
+
+        .likes{
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            background-color: $light-blue;
+            padding: 5px 12px;
+            border-radius: 50%;
+            margin-left: 8px;
         }
     }
 

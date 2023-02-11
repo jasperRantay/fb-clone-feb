@@ -29,7 +29,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @user = current_user.id
         if @post.update(post_params)
-            redirect_to user_url(@user), notice: "Successfully Updated"
+            redirect_to fbpages_path, notice: "Successfully Updated"
           else
             render :edit, status: :unprocessable_entity
           end
@@ -39,8 +39,8 @@ class PostsController < ApplicationController
     def destroy
         @post = Post.find(params[:id])
         @post.destroy
-        @user = current_user.id
-        redirect_to user_url(@user), status: :see_other, notice: "Post Deleted"
+        # @user = current_user.id
+        redirect_to fbpages_path, status: :see_other, notice: "Post Deleted"
       end
 
     private
